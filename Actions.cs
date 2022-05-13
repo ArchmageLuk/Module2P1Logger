@@ -7,7 +7,6 @@ public class Actions
         Result rez = new Result();
         rez._status = true;
         rez._message = "Start method: Info";
-        Logger new_log = new Logger.Initialize;
         return rez;
     }
 

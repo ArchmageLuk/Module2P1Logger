@@ -2,8 +2,8 @@
 
 public class Program
 {
-    static void Main()
+    private static void Main()
     {
-        Starter.Run();
+        Starter.Run(); // Calls method Run in Starter file
     }
 }
