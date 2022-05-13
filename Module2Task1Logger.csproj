@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
 	<CodeAnalysisRuleSet>Settings.ruleset</CodeAnalysisRuleSet>
 	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-	<NoWarn>SA0001;SA1633;SA1200</NoWarn>
+	<NoWarn>SA0001;SA1633;SA1200;SA1401</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
