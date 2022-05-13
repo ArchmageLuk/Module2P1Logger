@@ -1,33 +1,37 @@
 ﻿using System;
 
-public class Result
-{
-    public bool WhatStatus
-    {
-        get
-        {
-            bool status = true;
-        }
-
-    }
-}
 
 public class Actions
 {
-    public void Info()
+    public static Result Info()
     {
-        var message = "Start method Info";
-        Logger.WriteDown(message);
-        return Result;
+        Result rez = new Result();
+        rez.status = true;
+        rez.message = "Start method: Info";
+
+        return rez;
     }
 
-    public void Warning()
+    public static Result Warning()
     {
-        return Result;
+        Result rez = new Result();
+        rez.status = true;
+        rez.message = "Skipped logic in method: Warning";
+        return rez;
     }
 
-    public void Error()
+    public static Result Error()
     {
-        return Result;
+        Result rez = new Result();
+        rez.status = false;
+        rez.message = "I broke a logic";
+        return rez;
     }
 }
+
+public class Result
+{
+    public bool status;
+    public string? message;
+}
+

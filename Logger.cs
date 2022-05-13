@@ -1,36 +1,36 @@
 ﻿
 public sealed class Logger
 {
-    private static Logger instance = null;
+    private static Logger single = null;
 
     private Logger()
     {
+        void WriteDown()
+        {
+            // We need 3 variables - message, type and time
+            string message;
+            string log_type;
+            var log_time = DateTime.UtcNow.AddHours(3);
 
+            // Constructing the complete message for the log
+            var resultlog = $"{log_time}: {log_type}: {message}";
+
+            Console.WriteLine(resultlog);
+
+            // Writing down the log message in the file
+            File.WriteAllText("log.txt", resultlog);
+        }
     }
 
-    public static Logger Instance
+    public static Logger Initialize
     {
         get
         {
-            if (instance == null)
+            if (single == null)
             {
-                instance = new Logger();
+                single = new Logger();
             }
-            return instance;
+            return single;
         }
     }
 }
-
-var message = Logger.WriteDown();
-
-var log_type = ;
-
-var log_time = DateTime.UtcNow.AddHours(3);
-
-Console.Write(log_time);
-
-var resultlog = $"{log_time}: {log_type}: {message}";
-
-Console.WriteLine(resultlog);
-
-File.WriteAllText("log.txt", resultlog);

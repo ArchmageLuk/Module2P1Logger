@@ -2,7 +2,7 @@
 
 public class Program
 {
-    void Main()
+    static void Main()
     {
         Starter.Run();
     }
