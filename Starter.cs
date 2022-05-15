@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 public class Starter
 {
@@ -7,28 +8,35 @@ public class Starter
         for (int i = 0; i < 100; i++)
         {
             int randommethod = new Random().Next(1, 4);
-            switch (randommethod)
+            void GetLog(Result whatmethod) // Method to use fields in the result object to create log, show it on console and write it down
             {
-                case 1:
-                    var info = Actions.Info();
-                    Console.WriteLine(info._message);
-                    break;
-                case 2:
-                    var warning = Actions.Warning();
-                    Console.WriteLine(warning._message);
-                    break;
-                case 3:
-                    var error = Actions.Error();
-                    Console.WriteLine(error._message);
+                string log = $"{i}: {whatmethod._time}: {whatmethod._type}: {whatmethod._message}" + Environment.NewLine;
+                Console.WriteLine(log);
+                File.WriteAllText("log.txt", log);
+            }
 
-                    if (error._status == false)
+            if (randommethod == 1)
+            {
+                var resultlog = Actions.Info();
+                GetLog(resultlog);
+            }
+
+            if (randommethod == 2)
+                {
+                    var resultlog = Actions.Warning();
+                    GetLog(resultlog);
+                }
+
+            if (randommethod == 3)
+                {
+                    var resultlog = Actions.Error();
+                    if (resultlog._status == false)
                     {
-                        error._message = "Action failed by a reason:" + error._message;
-                        _ = Logger.Initialize;
+                        resultlog._message = new string("Action failed by a reason: " + resultlog._message);
                     }
 
-                    break;
-            }
+                    GetLog(resultlog);
+                }
         }
     }
 }

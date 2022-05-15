@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 public class Result
     {
-       public bool _status;
-       public string? _message;
-    }
+    public bool _status;
+    public DateTime _time;
+    public string? _type;
+    public string? _message;
+}
