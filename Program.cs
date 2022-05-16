@@ -8,6 +8,9 @@ public class Program
 {
     private static void Main()
     {
-        Starter.Run(); // Calls method Run in Starter file
+        var startlog = new Starter();
+        startlog.Run();
+
+        // Calls method Run in Starter file
     }
 }

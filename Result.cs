@@ -10,4 +10,10 @@ public class Result
     public DateTime _time;
     public string? _type;
     public string? _message;
+
+    public Result()
+    {
+        _status = true;
+        _time = DateTime.UtcNow.AddHours(3);
+    }
 }

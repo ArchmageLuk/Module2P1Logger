@@ -6,6 +6,7 @@ public sealed class Logger
 
     private Logger()
     {
+        // method to write log strings into RAM
     }
 
     public static Logger Initialize

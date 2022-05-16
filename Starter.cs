@@ -3,8 +3,9 @@ using System.Text;
 
 public class Starter
 {
-    public static void Run()
+    public void Run()
     {
+        string[] wholelog = new string[100];
         for (int i = 0; i < 100; i++)
         {
             int randommethod = new Random().Next(1, 4);
@@ -12,31 +13,35 @@ public class Starter
             {
                 string log = $"{i}: {whatmethod._time}: {whatmethod._type}: {whatmethod._message}" + Environment.NewLine;
                 Console.WriteLine(log);
+                wholelog[i] = log;
                 File.WriteAllText("log.txt", log);
             }
 
             if (randommethod == 1)
             {
-                var resultlog = Actions.Info();
+                var result = new Actions();
+                var resultlog = result.Info();
                 GetLog(resultlog);
             }
 
             if (randommethod == 2)
-                {
-                    var resultlog = Actions.Warning();
-                    GetLog(resultlog);
-                }
+            {
+                var result = new Actions();
+                var resultlog = result.Warning();
+                GetLog(resultlog);
+            }
 
             if (randommethod == 3)
+            {
+                var result = new Actions();
+                var resultlog = result.Error();
+                if (resultlog._status == false)
                 {
-                    var resultlog = Actions.Error();
-                    if (resultlog._status == false)
-                    {
                         resultlog._message = new string("Action failed by a reason: " + resultlog._message);
-                    }
-
-                    GetLog(resultlog);
                 }
+
+                GetLog(resultlog);
+            }
         }
     }
 }
