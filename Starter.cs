@@ -14,7 +14,11 @@ public class Starter
                 string log = $"{i}: {whatmethod._time}: {whatmethod._type}: {whatmethod._message}" + Environment.NewLine;
                 Console.WriteLine(log);
                 wholelog[i] = log;
-                File.WriteAllText("log.txt", log);
+
+                // using (StreamWriter writer = new StreamWriter("log.txt", true)) //// true to append data to the file
+                // {
+                // writer.WriteLine(log);
+                // }
             }
 
             if (randommethod == 1)
@@ -43,5 +47,7 @@ public class Starter
                 GetLog(resultlog);
             }
         }
+
+        File.WriteAllLines("log.txt", wholelog);
     }
 }
